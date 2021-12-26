@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Profile from "./components/Profile/Profile";
+import TimeInfo from "./components/TimeInfo/TimeInfo";
+import {
+  daily,
+  weekly,
+  monthly,
+} from "./components/Modules/DateChangeFunctions";
 
 function App() {
+  const [dateName, setDateName] = useState("daily");
+
+  // Functions.daily(setDateName);
+  // weekly(setDateName);
+  // monthly(setDateName);
+
+  // daily(dateName);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Profile dailyFunc={daily} weeklyFunc={weekly} monthlyFunc={monthly} />
+      <TimeInfo dateName={dateName} />
     </div>
   );
 }
